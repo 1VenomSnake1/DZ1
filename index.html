@@ -33,6 +33,36 @@
                 flex-direction: column;
             }
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #00ff21;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #00ffff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #b200ff;
+        }
+
+        /* Объединение ячеек */
+        .merged {
+            text-align: center;
+            background-color: #0026ff;
+        }
+
     </style>
 </head>
 <body style="margin:0;">
@@ -95,50 +125,47 @@
                 <li><a href="ftp://user:pass123@site.ru/Temp/file.txt">ссылку на файл на сервере FTP с авторизацией</a></li>
             </ul>
         </aside>
-        <aside  style="background-color: #ff0000;">
+        <aside style="background-color: #ff0000;">
             <h2 id="t2">Таблица</h2>
-            <table style=" margin: 0 auto;">
-                <tr>
-                    <th>Мысли 1</th>
-                    <th>Действия</th>
-                    <th>Мысли 2</th>
-                    <th>Результат</th>
-                </tr>
-                <tr>
-                    <td>покушать</td>
-                    <td>готовка</td>
-                    <td>зачем?</td>
-                    <td>приготовил и поел</td>
-                </tr>
-                <tr>
-                    <td>Душ</td>
-                    <td>включил</td>
-                    <td>хорошо</td>
-                    <td>чистый</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Крутое объедиение</td>
-                    <td>заполнение1</td>
-                    <td>заполнение2</td>
-                </tr>
-                <tr>
-                    <td>да</td>
-                    <td>конечно</td>
-                    <td>точно</td>
-                    <td>определённо</td>
-                </tr>
-                <tr>
-                    <td>ф</td>
-                    <td>п</td>
-                    <td>р</td>
-                    <td>о</td>
-                </tr>
-                <tr>
-                    <td>Ф</td>
-                    <td>К</td>
-                    <td>Т</td>
-                    <td>П</td>
-                </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="merged" colspan="2">Основная информация</th>
+                        <th class="merged" colspan="2">Детали работы</th>
+                    </tr>
+                    <tr>
+                        <th>Название работы</th>
+                        <th>Опыт работы</th>
+                        <th>ЗП в месяц</th>
+                        <th>График</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Системный администратор</td>
+                        <td>5</td>
+                        <td>50000-65000</td>
+                        <td>5/2</td>
+                    </tr>
+                    <tr>
+                        <td>Лейтенант МВД</td>
+                        <td>12</td>
+                        <td>60000</td>
+                        <td>4/3</td>
+                    </tr>
+                    <tr>
+                        <td>Директор отдела кадров</td>
+                        <td>8</td>
+                        <td>45000-55000</td>
+                        <td>6/1</td>
+                    </tr>
+                    <tr>
+                        <td>Продавец-кассир</td>
+                        <td>0</td>
+                        <td>35000-42000</td>
+                        <td>2/2</td>
+                    </tr>
+                </tbody>
             </table>
         </aside>
         <aside  style="background-color: #b6ff00;">
