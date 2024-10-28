@@ -13,12 +13,10 @@
 
             #main-aside-wrapper main, #main-aside-wrapper aside {
                 background-color: #ddd;
-                margin: 10px;
-                padding: 10px;
             }
 
             #main-aside-wrapper main {
-                flex: 3;
+                flex: 2;
                 order: 1;
             }
 
@@ -26,13 +24,65 @@
                 flex: 1;
                 order: 2;
             }
-
-
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 850px) {
             #main-aside-wrapper {
                 flex-direction: column;
             }
+                #main-aside-wrapper main {
+                    flex: 2;
+                    order: 2;
+                }
+
+                #main-aside-wrapper aside {
+                    flex: 1;
+                    order: 1;
+                }
         }
+        
+        #main-aside-wrapper1 {
+            display: flex;
+            flex-direction: column;
+        }
+            #main-aside-wrapper1 aside1 {
+                background-color: #ddd;
+                margin: 10px;
+                padding: 10px;
+            }
+            #main-aside-wrapper1 aside1 {
+                flex: 1;
+                order: 4;
+            }
+            #main-aside-wrapper1 aside2 {
+                flex: 1;
+                order: 5;
+            }
+            #main-aside-wrapper1 tab {
+                margin: 10px;
+                padding: 10px;
+                flex: 1;
+                order: 3;
+            }
+        @media screen and (min-width: 800px) {
+            #main-aside-wrapper1 {
+                flex-direction: column;
+            }
+            #main-aside-wrapper1 aside1 {
+                flex: 1;
+                order: 3;
+            }
+            #main-aside-wrapper1 aside2 {
+                flex: 1;
+                order: 5;
+            }
+
+            #main-aside-wrapper1 tab {
+                margin: 10px;
+                padding: 10px;
+                flex: 1;
+                order: 4;
+            }
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -57,30 +107,31 @@
             background-color: #b200ff;
         }
 
-        /* Объединение ячеек */
         .merged {
-            text-align: center;
-            background-color: #0026ff;
+            margin-top: 40px;
+            margin-left: 100px;
+            text-align: end;
         }
+        
 
     </style>
 </head>
 <body style="margin:0;">
     <div id ="main-aside-wrapper">
         <main style="background-color: #808080">
-            <header>
-                <img style="float:left; margin:10px; width:100px; height:100px;" src="image3.png" alt="Описание картинки для скрин-ридеров и поисковиков" />
-                <span style=" float: right; margin-top: 50px; ">WELCOME TO MEGA SITE</span>
-            </header>
+            <img style="float:left; width:100px; height:100px;" src="image3.png" alt="LOGO" />
+            <div class="merged">WELCOME TO MEGA SITE</div>
         </main>
-        <aside style="background-color: #ff0000;">
+        <aside style="background-color: #808080;">
             <nav>
-                <div style="background-color: #b6ff00; margin: 10px; padding: 10px; "><a href="#t1">Список гиперссылок</a></div>
-                <div style="background-color: #ff0000; margin: 10px; padding: 10px; "><a href="#t2">Таблица</a></div>
-                <div style="background-color: #b6ff00; margin: 10px; padding: 10px; "><a href="#t3">Форма</a></div>
+                <div style="background-color: #b6ff00; float: right; margin: 10px; padding: 10px; "><a href="#t1">Список гиперссылок</a></div>
+                <div style="background-color: #ff0000; float: right; margin: 10px; padding: 10px; "><a href="#t2">Таблица</a></div>
+                <div style="background-color: #b6ff00; float: right; margin: 10px; padding: 10px; "><a href="#t3">Форма</a></div>
             </nav>
         </aside>
-        <aside style="background-color: #b6ff00;">
+    </div>
+    <div id="main-aside-wrapper1">
+        <aside1 style="background-color: #b6ff00;">
             <h2 id="t1">Список гиперссылок</h2>
             <ul>
                 <li><a href="http://kubsu.ru">абсолютная cсылка на КУБГУ http</a></li>
@@ -124,8 +175,8 @@
                 </li>
                 <li><a href="ftp://user:pass123@site.ru/Temp/file.txt">ссылку на файл на сервере FTP с авторизацией</a></li>
             </ul>
-        </aside>
-        <aside style="background-color: #ff0000;">
+        </aside1>
+        <tab style="background-color: #ff0000;">
             <h2 id="t2">Таблица</h2>
             <table>
                 <thead>
@@ -167,8 +218,8 @@
                     </tr>
                 </tbody>
             </table>
-        </aside>
-        <aside  style="background-color: #b6ff00;">
+        </tab>
+        <aside1  style="background-color: #b6ff00;">
             <h2 id="t3">Форма</h2>
             <form action="" method="get">
                 <p>
@@ -260,12 +311,12 @@
                     <button type="submit">СОХРАНИТЬ</button>
                 </p>
             </form>
-        </aside>
-        <aside style="background-color: #808080">
+        </aside1>
+        <aside2 style="background-color: #808080">
             <footer>
                 <span>Автор сайта @NONAME</span>
             </footer>
-        </aside>
+        </aside2>
     </div>
 </body>
 </html>
