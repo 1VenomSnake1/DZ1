@@ -1,322 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости заказа</title>
     <link rel="stylesheet" href="style.css">
-    <title>MEGA SITE</title>
-    <style>
-        #main-aside-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-
-            #main-aside-wrapper main, #main-aside-wrapper aside {
-                background-color: #ddd;
-            }
-
-            #main-aside-wrapper main {
-                flex: 2;
-                order: 1;
-            }
-
-            #main-aside-wrapper aside {
-                flex: 1;
-                order: 2;
-            }
-        @media screen and (min-width: 850px) {
-            #main-aside-wrapper {
-                flex-direction: column;
-            }
-                #main-aside-wrapper main {
-                    flex: 2;
-                    order: 2;
-                }
-
-                #main-aside-wrapper aside {
-                    flex: 1;
-                    order: 1;
-                }
-        }
-        
-        #main-aside-wrapper1 {
-            display: flex;
-            flex-direction: column;
-        }
-            #main-aside-wrapper1 aside1 {
-                background-color: #ddd;
-                margin: 10px;
-                padding: 10px;
-            }
-            #main-aside-wrapper1 aside1 {
-                flex: 1;
-                order: 4;
-            }
-            #main-aside-wrapper1 aside2 {
-                flex: 1;
-                order: 5;
-            }
-            #main-aside-wrapper1 tab {
-                margin: 10px;
-                padding: 10px;
-                flex: 1;
-                order: 3;
-            }
-        @media screen and (min-width: 800px) {
-            #main-aside-wrapper1 {
-                flex-direction: column;
-            }
-            #main-aside-wrapper1 aside1 {
-                flex: 1;
-                order: 3;
-            }
-            #main-aside-wrapper1 aside2 {
-                flex: 1;
-                order: 5;
-            }
-
-            #main-aside-wrapper1 tab {
-                margin: 10px;
-                padding: 10px;
-                flex: 1;
-                order: 4;
-            }
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #00ff21;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #00ffff;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #b200ff;
-        }
-
-        .merged {
-            margin-top: 40px;
-            margin-left: 100px;
-            text-align: end;
-        }
-        
-
-    </style>
 </head>
-<body style="margin:0;">
-    <div id ="main-aside-wrapper">
-        <main style="background-color: #808080">
-            <img style="float:left; width:100px; height:100px;" src="image3.png" alt="LOGO" />
-            <div class="merged">WELCOME TO MEGA SITE</div>
-        </main>
-        <aside style="background-color: #808080;">
-            <nav>
-                <div style="background-color: #b6ff00; float: right; margin: 10px; padding: 10px; "><a href="#t1">Список гиперссылок</a></div>
-                <div style="background-color: #ff0000; float: right; margin: 10px; padding: 10px; "><a href="#t2">Таблица</a></div>
-                <div style="background-color: #b6ff00; float: right; margin: 10px; padding: 10px; "><a href="#t3">Форма</a></div>
-            </nav>
-        </aside>
+<body>
+    <div calss = "calc">
+        <h1>Калькулятор стоимости заказа</h1>
+        <label for="quantity">Количество товара:</label>
+        <input type="number" id="quantity" min="1" value="1">
+
+        <label for="product">Выберите товар:</label>
+        <select id="product">
+            <option value="100">Товар 1 - 100 руб.</option>
+            <option value="200">Товар 2 - 200 руб.</option>
+            <option value="300">Товар 3 - 300 руб.</option>
+        </select>
+
+        <button onclick="calculateCost()">Подсчитать стоимость</button>
+
+        <p id="result"></p>
     </div>
-    <div id="main-aside-wrapper1">
-        <aside1 style="background-color: #b6ff00;">
-            <h2 id="t1">Список гиперссылок</h2>
-            <ul>
-                <li><a href="http://kubsu.ru">абсолютная cсылка на КУБГУ http</a></li>
-                <li><a href="https://kubsu.ru">абсолютная cсылка на КУБГУ https</a></li>
-                <li>
-                    <a href="http://kubsu.ru">
-                        <img src="image.jpg" width="500">
-                    </a>
-                </li>
-                <li><a href="https://gclnk.com/HN33Qiyd">cокращенная ссылкa на внутреннюю страницу</a></li>
-                <li><a href="https://gclnk.com/HN33Qiyd">cокращенная ссылкa на главную страницу</a></li>
-                <li><a href="#t1">Ссылк на фрагмент</a></li>
-                <li><a href="https://www.kubsu.ru/ru/fktipm/prikladnaya-matematika-i-informatika-matematicheskie-i-informacionnye-tehnologii-v-cifrovoy">Ссылка c 3 параметрами url</a></li>
-                <li><a href="http://site.com/page?id=2">ссылка с параметром id в URL</a></li>
-                <li><a href="page.html">относительная на страницу в текущем каталоге</a></li>
-                <li><a href="/about/page.html">относительная на страницу в каталоге about</a></li>
-                <li><a href="../page.html">относительная на страницу в каталоге уровнем выше текущего</a></li>
-                <li><a href="/../../page.html">относительная на страницу в каталоге двумя уровнями выше текущего</a></li>
-                <li>Контекстную в тексте <a href="https://store.steampowered.com/?l=russian"> абзаца</a></li>t
-                <li><a href="https://store.steampowered.com/about/#:~:text=2024%20Valve%20Corporation.-,%D0%92%D1%81%D0%B5%20%D0%BF%D1%80%D0%B0%D0%B2%D0%B0%20%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D1%8B,-.%20%D0%92%D1%81%D0%B5%20%D1%82%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B8">ссылкa на фрагмент страницы стороннего сайта</a></li>
-                <li><img src="image2.png" width="300" height="150" usemap="#map" alt="Тут работаем"></li>
-                <p>
-                    <map name="map">
-                        <area shape="circle" alt="Круг"
-                              coords="200,150,100"
-                              href="https://wiki.teamfortress.com/wiki/Engineer">
-                        <area shape="rect" coords="68,42,100,123" href="https://wiki.teamfortress.com/wiki/Wrench" alt="Прямоугольник">
-                    </map>
-                </p>
-                <li><a href="">ссылкa с пустым href</a></li>
-                <li><a>ссылкa без href</a></li>
-                <li><a href="http://" rel="nofollow">ссылкa, по которой запрещен переход поисковикам</a></li>
-                <li><a href="http://" rel="noindex">ссылкa, по которой запрещен переход поисковикам</a></li>
-                <li>
-                    <ol>
-                        <li><a href="https://wiki.teamfortress.com/wiki/Engineer">title</a></li>
-                        <li><a href="https://wiki.teamfortress.com/wiki/Engineer">title</a></li>
-                        <li><a href="https://wiki.teamfortress.com/wiki/Engineer">title</a></li>
-                        <li><a href="https://wiki.teamfortress.com/wiki/Engineer">title</a></li>
-                    </ol>
-                </li>
-                <li><a href="ftp://user:pass123@site.ru/Temp/file.txt">ссылку на файл на сервере FTP с авторизацией</a></li>
-            </ul>
-        </aside1>
-        <tab style="background-color: #ff0000;">
-            <h2 id="t2">Таблица</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="merged" colspan="2">Основная информация</th>
-                        <th class="merged" colspan="2">Детали работы</th>
-                    </tr>
-                    <tr>
-                        <th>Название работы</th>
-                        <th>Опыт работы</th>
-                        <th>ЗП в месяц</th>
-                        <th>График</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Системный администратор</td>
-                        <td>5</td>
-                        <td>50000-65000</td>
-                        <td>5/2</td>
-                    </tr>
-                    <tr>
-                        <td>Лейтенант МВД</td>
-                        <td>12</td>
-                        <td>60000</td>
-                        <td>4/3</td>
-                    </tr>
-                    <tr>
-                        <td>Директор отдела кадров</td>
-                        <td>8</td>
-                        <td>45000-55000</td>
-                        <td>6/1</td>
-                    </tr>
-                    <tr>
-                        <td>Продавец-кассир</td>
-                        <td>0</td>
-                        <td>35000-42000</td>
-                        <td>2/2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </tab>
-        <aside1  style="background-color: #b6ff00;">
-            <h2 id="t3">Форма</h2>
-            <form action="" method="get">
-                <p>
-                    <label for="name">Введите ФИО:</label>
-                    <input type="text" name="name" id="name" required>
-                </p>
-                <p>
-                    <label for="tel">Введите телефон:</label>
-                    <input type="tel" name="tel" id="tel" required>
-                </p>
-                <p>
-                    <label for="email">Введите email:</label>
-                    <input type="email" name="email" id="email" required>
-                </p>
-                <p>
-                    <label for="date">Введите дату рождения:</label>
-                    <input type="date" name="date" id="date" required>
-                </p>
-                <legend>Выберите пол</legend>
-                <label>
-                    <input type="radio" name="level">
-                    МУЖ
-                </label>
-                <label>
-                    <input type="radio" name="level" checked>
-                    ЖЕН
-                </label>
-                <label>
-                    <input type="radio" name="level">
-                    ДРУГОЕ
-                </label>
-                <br>
-                <legend>Любимый язык программирования:</legend>
-                <label>
-                    <input type="checkbox">
-                    Pascal
-                </label>
-                <label>
-                    <input type="checkbox">
-                    C
-                </label>
-                <label>
-                    <input type="checkbox">
-                    C++
-                </label>
-                <label>
-                    <input type="checkbox">
-                    JavaScript
-                </label>
-                <label>
-                    <input type="checkbox">
-                    PHP
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Python
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Java
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Haskel
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Clojure
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Prolog
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Scala
-                </label>
-                <p>
-                    <label for="text">Биография</label>
-                    <textarea typeof="text" name="Биография"></textarea>
-                </p>
-                <p>
-                    <label>
-                        <input type="checkbox">
-                        С контрактом ознакомлен
-                    </label>
-                </p>
-                <p>
-                    <button type="submit">СОХРАНИТЬ</button>
-                </p>
-            </form>
-        </aside1>
-        <aside2 style="background-color: #808080">
-            <footer>
-                <span>Автор сайта @NONAME</span>
-            </footer>
-        </aside2>
-    </div>
+    
+
+    <script>
+        function calculateCost() {
+            // Получаем количество товара
+            const quantity = document.getElementById('quantity').value;
+            // Получаем цену выбранного товара
+            const price = document.getElementById('product').value;
+            // Вычисляем стоимость
+            const totalCost = quantity * price;
+            // Выводим результат
+            document.getElementById('result').textContent = `Стоимость заказа: ${totalCost} руб.`;
+        }
+    </script>
 </body>
 </html>
