@@ -1,41 +1,70 @@
+
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор стоимости заказа</title>
-    <link rel="stylesheet" href="style.css">
+
+    <script src="JS.js"></script>
+    <title>Рассчёт товара и услуги</title>
 </head>
+
+
+
+
 <body>
-    <div calss = "calc">
-        <h1>Калькулятор стоимости заказа</h1>
-        <label for="quantity">Количество товара:</label>
-        <input type="number" id="quantity" min="1" value="1">
+    <h1>Калькулятор услуг</h1>
 
-        <label for="product">Выберите товар:</label>
-        <select id="product">
-            <option value="100">Товар 1 - 100 руб.</option>
-            <option value="200">Товар 2 - 200 руб.</option>
-            <option value="300">Товар 3 - 300 руб.</option>
+
+    <div id="result"></div>
+    <form>
+        <input name="field1" type="text" pattern="^[1-9][0-9]*$" placeholder="Введите количество">
+        <select name="select1">
+            <option value="v1">Табурет</option>
+            <option value="v2">Часы</option>
+            <option value="v3">Верёвка</option>
+            <option value="v4">Мыло</option>
         </select>
+        <button id="button1" onclick="return click1();">Oк</button>
+    </form>
+<br> 
+<br> 
+<br> 
 
-        <button onclick="calculateCost()">Подсчитать стоимость</button>
 
-        <p id="result"></p>
-    </div>
-    
 
-    <script>
-        function calculateCost() {
-            // Получаем количество товара
-            const quantity = document.getElementById('quantity').value;
-            // Получаем цену выбранного товара
-            const price = document.getElementById('product').value;
-            // Вычисляем стоимость
-            const totalCost = quantity * price;
-            // Выводим результат
-            document.getElementById('result').textContent = `Стоимость заказа: ${totalCost} руб.`;
-        }
-    </script>
+    <div id="result2"></div>
+    <form id="calculator">
+        <label for="quantity">Количество:</label>
+        <input type="number" id="quantity" value="1" min="1">
+
+        <fieldset>
+            <legend>Тип услуги(Доставка):</legend>
+            <label><input type="radio" name="serviceType" value="type1" checked> Наземная доставка</label>
+            <label><input type="radio" name="serviceType" value="type2"> По воде доставка</label>
+            <label><input type="radio" name="serviceType" value="type3"> Воздушная доставка</label>
+        </fieldset>
+
+        <div id="optionsContainer" style="display: none;">
+            <label for="options">Выберите опцию:</label>
+            <select id="options">
+                <option value="">-- Выберите опцию --</option>
+                <option value="option1">Катер</option>
+                <option value="option2">Крейсер</option>
+            </select>
+        </div>
+
+        <div id="checkboxContainer" style="display: none;">
+            <label><input type="checkbox" id="property"> Хрупкий товар</label>
+        </div>
+
+        <h2>Итоговая стоимость: <span id="totalCost">0</span> руб.</h2>
+    </form>
+
+
+   
 </body>
+
+
 </html>
